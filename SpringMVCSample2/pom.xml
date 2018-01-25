@@ -11,6 +11,16 @@
 
 	<build>
 		<finalName>${artifactId}</finalName>
+		<plugins>
+			<!-- WAR (avoid error missing web.xml built) -->
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 
 	<dependencies>
@@ -27,7 +37,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>4.0.0</version>
-			<scope>provided</scope>
+			<!--<scope>provided</scope>-->
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
@@ -38,4 +48,6 @@
 		</dependency>
 
 	</dependencies>
+
+
 </project>
